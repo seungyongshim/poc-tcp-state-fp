@@ -1,2 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using ObsStrawket;
+
+using var client = new ObsClientSocket();
+
+
+
+await client.ConnectAsync(new Uri("ws://localhost:4455"));
+
+
+
+var version = await client.GetVersionAsync();
+
+Console.WriteLine($"Version: {version.ObsWebSocketVersion}");
+
